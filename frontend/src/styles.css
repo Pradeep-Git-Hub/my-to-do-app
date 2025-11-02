@@ -1,0 +1,80 @@
+:root{
+	/* Light, high-contrast theme */
+	--bg: #f8fafc;
+	--card: #ffffff;
+	--muted: #6b7280; /* slate-500 */
+	--text: #0f172a; /* slate-900 */
+	--accent: #0ea5e9; /* sky-500 */
+	--accent-600: #0284c7; /* sky-600 */
+	--glass: rgba(15,23,42,0.04);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body {
+	margin:0;
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
+	color: var(--text);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	padding:28px;
+}
+.app {
+	max-width:900px;
+	margin:28px auto;
+	padding: 8px;
+}
+.card{
+	background: var(--card);
+	border-radius:14px;
+	padding:22px;
+	box-shadow: 0 8px 30px rgba(15,23,42,0.06);
+	border: 1px solid var(--glass);
+}
+h1{margin:0 0 10px 0;font-weight:700;color:var(--text);font-size:20px}
+.controls{display:flex;gap:10px;margin-bottom:18px}
+.input{
+	flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(15,23,42,0.08);background:transparent;color:var(--text);font-size:15px
+}
+.btn{
+	background:var(--accent);border:none;color:#04292f;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(2,132,199,0.12)}
+.btn-secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--muted);padding:8px 12px;border-radius:8px}
+.tasks{list-style:none;padding:0;margin:0}
+.task-item{display:flex;align-items:center;padding:14px;border-bottom:1px solid rgba(15,23,42,0.04)}
+.task-title{margin-left:14px;flex:1}
+
+/* Card grid */
+.task-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:8px 0}
+.task-card{background:var(--card);border:1px solid var(--glass);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+.task-card .card-top{display:flex;align-items:flex-start;gap:10px}
+.task-card .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.task-card .title{font-weight:600}
+.task-card .meta{color:var(--muted);font-size:12px}
+.actions{display:flex;gap:8px}
+.task-meta{color:var(--muted);font-size:12px;margin-top:6px}
+.task-actions{display:flex;gap:8px}
+.checkbox{width:18px;height:18px;border-radius:6px;border:1px solid rgba(15,23,42,0.08);display:inline-block;background:transparent;cursor:pointer}
+.checkbox:checked{background:var(--accent)}
+.strike{text-decoration:line-through;color:rgba(15,23,42,0.5)}
+.muted{color:var(--muted)}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+.small{font-size:13px}
+
+@media (max-width:640px){
+	.app{padding:0 12px}
+	.controls{flex-direction:column}
+	.btn{width:100%}
+}
+
+/* modal and toast tweaks */
+.card { position: relative }
+.toast { box-shadow: 0 8px 30px rgba(2,6,23,0.6) }
+.task-item:hover { transform: translateY(-2px); transition: transform .12s ease }
+
+/* modal content */
+.modal-backdrop { position: absolute; inset:0; background: rgba(2,6,23,0.6) }
+
+/* accessibility focus */
+:focus { outline: 3px solid rgba(6,182,212,0.18); outline-offset: 2px }
